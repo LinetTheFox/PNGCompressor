@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="center" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PNGCompressor.view.Controller">
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="20.0" />
+        <RowConstraints minHeight="10.0" prefHeight="250.0" />
+        <RowConstraints minHeight="10.0" prefHeight="130.0" />
+    </rowConstraints>
+    <columnConstraints>
+        <ColumnConstraints minWidth="0.0" prefWidth="800.0" />
+    </columnConstraints>
+    <children>
+        <MenuBar>
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleCompression" text="Open" />
+               </items></Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="About" />
+               </items></Menu>
+            </menus>
+        </MenuBar>
+        <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+            <columns>
+                <TableColumn fx:id="imgNameCol" editable="false" prefWidth="200.0" sortable="false" text="Image name" />
+                <TableColumn fx:id="origSizeCol" editable="false" minWidth="0.0" prefWidth="100.0" sortable="false" text="Original size, B" />
+                <TableColumn fx:id="pngSizeCol" editable="false" prefWidth="100.0" sortable="false" text="PNG size, B" />
+                <TableColumn fx:id="pngEffCol" editable="false" prefWidth="70.0" sortable="false" text="PNG eff, %" />
+            <TableColumn fx:id="pngTimeCol" editable="false" sortable="false" text="PNG t, ms" />
+                <TableColumn fx:id="gifSizeCol" editable="false" prefWidth="100.0" sortable="false" text="GIF size, B" />
+                <TableColumn fx:id="gifEffCol" editable="false" prefWidth="70.0" sortable="false" text="GIF eff, %" />
+            <TableColumn fx:id="gifTimeCol" editable="false" sortable="false" text="GIF t, ms" />
+            </columns>
+        </TableView>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+            <children>
+                <CheckBox fx:id="pngCheck" layoutX="343.0" layoutY="36.0" mnemonicParsing="false" text="Compress to PNG" />
+                <CheckBox fx:id="gifCheck" layoutX="343.0" layoutY="75.0" mnemonicParsing="false" text="Compress to GIF" />
+            </children>
+        </AnchorPane>
+    </children>
+</GridPane>
